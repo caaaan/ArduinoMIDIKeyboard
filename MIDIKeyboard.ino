@@ -1,4 +1,4 @@
-// Arduino MIDI Keyboard: 11 Notes + Octave Up/Down with SoftwareSerial MIDI OUT
+// Arduino MIDI Keyboard: 12 Notes + Octave Up/Down with SoftwareSerial MIDI OUT
 
 #include <SoftwareSerial.h>
 #include <MIDI.h>
@@ -65,13 +65,3 @@ void loop() {
   }
   lastOctaveDown = down;
 }
-
-/*
-  Hardware setup for MIDI OUT via SoftwareSerial TX (pin 10):
-  - Arduino pin 10 --> 220 Ω resistor --> DIN jack pin 5
-  - Arduino GND     --> DIN jack pin 2
-  - DIN pin 4       <-- +5V supplied by MIDI device
-
-  Now MIDI.sendNoteOn/Off() goes out on pin 10 at 31,250 baud.
-  Serial.print() messages remain on USB-serial at 9600 baud, so Serial Monitor shows only debug.
-*/
